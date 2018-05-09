@@ -1,0 +1,18 @@
+<div>
+    <h2><span data-translate="jhipsterApp.factormethod.factormethod.title">Factormethod</span></h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+
+<div class="table-responsive" *ngIf="factormethods">
+    <table class="table table-striped">
+        <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let factormethod of factormethods ;trackBy: trackId">
+</tr>
+</tbody>
+</table>
+</div>
+</div>

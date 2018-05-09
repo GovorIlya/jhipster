@@ -1,0 +1,27 @@
+
+{
+    "jhipsterApp": {
+        "unit" : {
+            "home": {
+                "title": "Объекты",
+                "createLabel": "Создать новый Объект",
+                "createOrEditLabel": "Создать или отредактировать Объект"
+            },
+            "created": "Новый Unit создан с идентификатором {{ param }}",
+            "updated": "Unit обновлен с идентификатором {{ param }}",
+            "deleted": "Unit удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Объект {{ id }}?"
+            },
+            "detail": {
+                "title": "Объект"
+            },
+            "unitName": "Населенный пункт",
+            "unitDescription": "Описание объекта",
+            "image": "Изображение",
+            "researchMethod": "Метод обследования",
+            "typesProblems": "Виды характерных проблем",
+            "ratingMethod": "Методика оценки"
+        }
+    }
+}

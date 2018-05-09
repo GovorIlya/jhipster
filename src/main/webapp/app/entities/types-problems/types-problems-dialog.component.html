@@ -1,0 +1,87 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTypesProblemsLabel" jhiTranslate="jhipsterApp.typesProblems.home.createOrEditLabel">Create or edit a Types Problems</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!typesProblems.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="typesProblems.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.nameOfType" for="field_nameOfType">Name Of Type</label>
+            <input type="text" class="form-control" name="nameOfType" id="field_nameOfType"
+                [(ngModel)]="typesProblems.nameOfType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.proyavlenie" for="field_proyavlenie">Proyavlenie</label>
+            <textarea class="form-control" name="proyavlenie" id="field_proyavlenie"
+                [(ngModel)]="typesProblems.proyavlenie" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.reasons" for="field_reasons">Reasons</label>
+            <textarea class="form-control" name="reasons" id="field_reasons"
+                [(ngModel)]="typesProblems.reasons" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.profilactika" for="field_profilactika">Profilactika</label>
+            <textarea class="form-control" name="profilactika" id="field_profilactika"
+                [(ngModel)]="typesProblems.profilactika" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.problemImage" for="field_problemImage">Problem Image</label>
+            <div>
+                <img [src]="'data:' + typesProblems.problemImageContentType + ';base64,' + typesProblems.problemImage" style="max-height: 100px;" *ngIf="typesProblems.problemImage" alt="typesProblems image"/>
+                <div *ngIf="typesProblems.problemImage" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{typesProblems.problemImageContentType}}, {{byteSize(typesProblems.problemImage)}}</span>
+                    <button type="button" (click)="clearInputImage('problemImage', 'problemImageContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_problemImage" (change)="setFileData($event, typesProblems, 'problemImage', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="problemImage" id="field_problemImage"
+                [(ngModel)]="typesProblems.problemImage" />
+            <input type="hidden" class="form-control" name="problemImageContentType" id="field_problemImageContentType"
+                [(ngModel)]="typesProblems.problemImageContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.typesDocument" for="field_typesDocument">Types Document</label>
+            <div>
+                <div *ngIf="typesProblems.typesDocument" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(typesProblems.typesDocumentContentType, typesProblems.typesDocument)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{typesProblems.typesDocumentContentType}}, {{byteSize(typesProblems.typesDocument)}}</span>
+                    <button type="button" (click)="typesProblems.typesDocument=null;typesProblems.typesDocumentContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_typesDocument" (change)="setFileData($event, typesProblems, 'typesDocument', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="typesDocument" id="field_typesDocument"
+                [(ngModel)]="typesProblems.typesDocument" />
+            <input type="hidden" class="form-control" name="typesDocumentContentType" id="field_typesDocumentContentType"
+                [(ngModel)]="typesProblems.typesDocumentContentType" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.unit" for="field_unit">Unit</label>
+            <select class="form-control" id="field_unit" name="unit" [(ngModel)]="typesProblems.unit" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="unitOption.id === typesProblems.unit?.id ? typesProblems.unit : unitOption" *ngFor="let unitOption of units; trackBy: trackUnitById">{{unitOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

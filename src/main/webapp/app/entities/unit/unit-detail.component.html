@@ -1,0 +1,32 @@
+
+<div *ngIf="unit">
+    <h2><span jhiTranslate="jhipsterApp.unit.detail.title">Unit</span> {{unit.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp.unit.unitName">Unit Name</span></dt>
+        <dd>
+            <span>{{unit.unitName}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.unit.unitDescription">Unit Description</span></dt>
+        <dd>
+            <div *ngIf="unit.unitDescription">
+                <a [routerLink]="['/unit-description', unit.unitDescription?.id]">{{unit.unitDescription?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'unit/'+ unit.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

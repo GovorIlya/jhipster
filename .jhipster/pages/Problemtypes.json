@@ -1,0 +1,11 @@
+{
+    "pages": [
+        {
+            "pageName": "Problemtypes",
+            "pageType": "loadAndSaveToServer",
+            "fields": []
+        }
+    ],
+    "pageSetGlyphIcon": "",
+    "changelogDate": "20180506170024"
+}

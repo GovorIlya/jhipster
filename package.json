@@ -8,6 +8,7 @@
     "node_modules"
   ],
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.2",
     "@angular/common": "5.2.0",
     "@angular/compiler": "5.2.0",
     "@angular/core": "5.2.0",
@@ -16,11 +17,15 @@
     "@angular/platform-browser-dynamic": "5.2.0",
     "@angular/router": "5.2.0",
     "@ng-bootstrap/ng-bootstrap": "1.0.0",
+    "@types/googlemaps": "^3.30.8",
+    "angular-image-slider": "0.0.8",
     "bootstrap": "4.0.0",
     "core-js": "2.4.1",
     "font-awesome": "4.7.0",
+    "google-maps-angular2": "^1.1.2",
     "jquery": "3.2.1",
     "ng-jhipster": "0.4.0",
+    "ng2-pdf-viewer": "^5.0.1",
     "ngx-cookie": "2.0.1",
     "ngx-infinite-scroll": "0.5.1",
     "ngx-webstorage": "2.0.1",

@@ -1,0 +1,60 @@
+entity Unit {
+	unitName String required
+  
+    
+}
+
+entity UnitDescription {
+	createYear String,
+	square String,
+	collesctors String,
+	prst Integer,
+	sbros String,
+	description TextBlob
+}
+
+
+entity Image {
+	image ImageBlob
+}
+ entity ResearchMethod{
+	 headString String,
+	 researchMethod TextBlob,
+	 methodImage ImageBlob,
+	 file AnyBlob
+ }
+ entity TypesProblems{
+	 nameOfType String,
+	 proyavlenie TextBlob,
+	 reasons TextBlob,
+	 profilactika TextBlob,
+	 problemImage ImageBlob,
+	 typesDocument AnyBlob
+ }
+ entity RatingMethod{
+	 ratingHead String,
+	 ratingMethod TextBlob,
+	 ratingImage ImageBlob,
+	 ratingDocument AnyBlob
+ }
+
+relationship OneToOne {
+	Unit{UnitDescription} to UnitDescription{unit}
+}
+
+relationship OneToMany {
+	Unit{image} to Image
+}
+relationship OneToMany {
+	Unit{ResearchMethod} to ResearchMethod
+}
+relationship OneToMany {
+	Unit{TypesProblems} to TypesProblems{unit}
+}
+relationship OneToMany {
+	Unit{RatingMethod} to RatingMethod
+}
+
+
+
+

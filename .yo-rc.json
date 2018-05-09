@@ -39,5 +39,11 @@
     "languages": [
       "ru"
     ]
+  },
+  "generator-jhipster-pages": {
+    "promptValues": {
+      "pageSet": "Description",
+      "pageType": "loadAndSaveToServer"
+    }
   }
 }

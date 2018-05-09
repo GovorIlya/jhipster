@@ -1,0 +1,11 @@
+{
+    "pages": [
+        {
+            "pageName": "KAPTA",
+            "pageType": "loadAndSaveToServer",
+            "fields": []
+        }
+    ],
+    "pageSetGlyphIcon": "",
+    "changelogDate": "20180502212726"
+}

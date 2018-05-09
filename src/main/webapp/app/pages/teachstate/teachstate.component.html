@@ -1,0 +1,43 @@
+<div>
+    <h2><span data-translate="jhipsterApp.teachstate.teachstate.title">Teachstate</span></h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+
+    <div class="row">
+        <div class="col">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Объекты</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <!-- <button class="dropdown-item" >sdfsdf</button>-->
+                    <button  class="dropdown-item" *ngFor="let u of units; trackBy: trackId;   let i =index;"  (click)="onClickMe(i)" >
+                        {{u.unitName}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="d-inline-block text-truncate"  style="max-width: 150px; font-weight: 600;"  >
+            {{unName}}
+    </span>
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
+        <div class="carousel-inner"   >
+            <div class="carousel-item active" *ngFor="let image of images ;trackBy: trackId let i =index;">
+
+                <img class="d-block w-100" *ngIf="image.unit.id==unId" [src]="'data:' + image.imageContentType + ';base64,' + image.image" alt="slide">
+                <br>
+                <hr>
+                <br>
+            </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>

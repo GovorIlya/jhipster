@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "unit",
+            "otherEntityName": "unit",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "unitDescription"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "createYear",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "square",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "collesctors",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prst",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sbros",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20180503093031",
+    "entityTableName": "unit_description",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

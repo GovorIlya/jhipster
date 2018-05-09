@@ -4,9 +4,22 @@
         "browsehappy": "Ваш браузер <strong>устарел</strong>. Пожалуйста <a href=\"http://browsehappy.com/?locale=ru\">обновите ваш браузер</a>.",
         "menu": {
             "home": "Главная",
+            "kapta-kapta": "карта",
+            "description-description": "Description",
+            "teachstate-teachstate": "Teachstate",
+            "researchmethod-researchmethod": "Researchmethod",
+            "problemtypes-problemtypes": "Problemtypes",
+            "factormethod-factormethod": "Factormethod",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Сущности",
+                "unit": "Объект",
+                "unitDescription": "Описание объекта",
+                "image": "Изображения",
+                "researchMethod": "Метод обследования",
+                "typesProblems": "Виды характерных нарушений",
+                "ratingMethod": "Методика оценки",
+
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -128,5 +141,5 @@
         "emailexists": "Эл. почта уже используется!!",
         "idexists": "Новый {{entityName}} не может иметь данный ID"
     },
-    "footer": "Это ваш футтер"
+    "footer": ""
 }

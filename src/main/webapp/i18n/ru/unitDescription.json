@@ -1,0 +1,28 @@
+
+{
+    "jhipsterApp": {
+        "unitDescription" : {
+            "home": {
+                "title": "Опсиание объекта",
+                "createLabel": "Создать новое Описание",
+                "createOrEditLabel": "Создать или отредактировать Описание"
+            },
+            "created": "Новый Unit Description создан с идентификатором {{ param }}",
+            "updated": "Unit Description обновлен с идентификатором {{ param }}",
+            "deleted": "Unit Description удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Опсиание объекта {{ id }}?"
+            },
+            "detail": {
+                "title": "Описание объекта"
+            },
+            "createYear": "Год постройки ",
+            "square": "Площадь,га",
+            "collesctors": "Коллектора,к-во/диаметр, мм",
+            "prst": "Пр-сть, м3/смену",
+            "sbros": "Сброс очищенных вод",
+            "description": "Описание",
+            "unit": "Объект"
+        }
+    }
+}

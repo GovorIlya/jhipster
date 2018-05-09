@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ResearchMethod.
+    -->
+    <changeSet id="20180503093033-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="unit_id"
+                                 baseTableName="research_method"
+                                 constraintName="fk_research_method_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unit"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,52 @@
+
+<div *ngIf="researchMethod">
+    <h2><span jhiTranslate="jhipsterApp.researchMethod.detail.title">Research Method</span> {{researchMethod.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp.researchMethod.headString">Head String</span></dt>
+        <dd>
+            <span>{{researchMethod.headString}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.researchMethod.researchMethod">Research Method</span></dt>
+        <dd>
+            <span>{{researchMethod.researchMethod}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.researchMethod.methodImage">Method Image</span></dt>
+        <dd>
+            <div *ngIf="researchMethod.methodImage">
+                <a (click)="openFile(researchMethod.methodImageContentType, researchMethod.methodImage)">
+                    <img [src]="'data:' + researchMethod.methodImageContentType + ';base64,' + researchMethod.methodImage" style="max-width: 100%;" alt="researchMethod image"/>
+                </a>
+                {{researchMethod.methodImageContentType}}, {{byteSize(researchMethod.methodImage)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.researchMethod.file">File</span></dt>
+        <dd>
+            <div *ngIf="researchMethod.file">
+                <a (click)="openFile(researchMethod.fileContentType, researchMethod.file)" jhiTranslate="entity.action.open">open</a>
+                {{researchMethod.fileContentType}}, {{byteSize(researchMethod.file)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.researchMethod.unit">Unit</span></dt>
+        <dd>
+            <div *ngIf="researchMethod.unit">
+                <a [routerLink]="['/unit', researchMethod.unit?.id]">{{researchMethod.unit?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'research-method/'+ researchMethod.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

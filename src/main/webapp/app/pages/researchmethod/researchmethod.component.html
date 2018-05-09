@@ -1,0 +1,40 @@
+<div>
+    <h2><span data-translate="jhipsterApp.researchmethod.researchmethod.title">Researchmethod</span></h2>
+    <hr>
+
+
+    <div class="row">
+        <div class="col">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Объекты</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <!-- <button class="dropdown-item" >sdfsdf</button>-->
+                    <button  class="dropdown-item" *ngFor="let u of units; trackBy: trackId;   let i =index;"  (click)="onClickMe(i)" >
+                        {{u.unitName}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="d-inline-block text-truncate"  style="max-width: 150px; font-weight: 600;"  >
+            {{unName}}
+    </span>
+
+    <div>
+        <label>PDF src</label>
+      <!-- <input (change)="onFileSelected()" type="file" id="file">
+        <input [(ngModel)]="page" type="text" id="page">-->
+
+    </div>
+
+
+        <pdf-viewer *ngFor="let rm of ratingMethods ;trackBy: trackId let i =index;"
+                    [src]="'data:' + rm.ratingDocumentContentType + ';base64,' + rm.ratingDocument"
+                    [render-text]="true"
+                    [page]="page"
+                    [show-all]="false"
+                    style="display: block;"
+        ></pdf-viewer>
+
+
+</div>

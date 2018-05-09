@@ -1,0 +1,77 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myResearchMethodLabel" jhiTranslate="jhipsterApp.researchMethod.home.createOrEditLabel">Create or edit a Research Method</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!researchMethod.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="researchMethod.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.researchMethod.headString" for="field_headString">Head String</label>
+            <input type="text" class="form-control" name="headString" id="field_headString"
+                [(ngModel)]="researchMethod.headString" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.researchMethod.researchMethod" for="field_researchMethod">Research Method</label>
+            <textarea class="form-control" name="researchMethod" id="field_researchMethod"
+                [(ngModel)]="researchMethod.researchMethod" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.researchMethod.methodImage" for="field_methodImage">Method Image</label>
+            <div>
+                <img [src]="'data:' + researchMethod.methodImageContentType + ';base64,' + researchMethod.methodImage" style="max-height: 100px;" *ngIf="researchMethod.methodImage" alt="researchMethod image"/>
+                <div *ngIf="researchMethod.methodImage" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{researchMethod.methodImageContentType}}, {{byteSize(researchMethod.methodImage)}}</span>
+                    <button type="button" (click)="clearInputImage('methodImage', 'methodImageContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_methodImage" (change)="setFileData($event, researchMethod, 'methodImage', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="methodImage" id="field_methodImage"
+                [(ngModel)]="researchMethod.methodImage" />
+            <input type="hidden" class="form-control" name="methodImageContentType" id="field_methodImageContentType"
+                [(ngModel)]="researchMethod.methodImageContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.researchMethod.file" for="field_file">File</label>
+            <div>
+                <div *ngIf="researchMethod.file" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(researchMethod.fileContentType, researchMethod.file)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{researchMethod.fileContentType}}, {{byteSize(researchMethod.file)}}</span>
+                    <button type="button" (click)="researchMethod.file=null;researchMethod.fileContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_file" (change)="setFileData($event, researchMethod, 'file', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="file" id="field_file"
+                [(ngModel)]="researchMethod.file" />
+            <input type="hidden" class="form-control" name="fileContentType" id="field_fileContentType"
+                [(ngModel)]="researchMethod.fileContentType" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.researchMethod.unit" for="field_unit">Unit</label>
+            <select class="form-control" id="field_unit" name="unit" [(ngModel)]="researchMethod.unit" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="unitOption.id === researchMethod.unit?.id ? researchMethod.unit : unitOption" *ngFor="let unitOption of units; trackBy: trackUnitById">{{unitOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

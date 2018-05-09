@@ -1,0 +1,60 @@
+
+<div *ngIf="typesProblems">
+    <h2><span jhiTranslate="jhipsterApp.typesProblems.detail.title">Types Problems</span> {{typesProblems.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp.typesProblems.nameOfType">Name Of Type</span></dt>
+        <dd>
+            <span>{{typesProblems.nameOfType}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.typesProblems.proyavlenie">Proyavlenie</span></dt>
+        <dd>
+            <span>{{typesProblems.proyavlenie}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.typesProblems.reasons">Reasons</span></dt>
+        <dd>
+            <span>{{typesProblems.reasons}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.typesProblems.profilactika">Profilactika</span></dt>
+        <dd>
+            <span>{{typesProblems.profilactika}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.typesProblems.problemImage">Problem Image</span></dt>
+        <dd>
+            <div *ngIf="typesProblems.problemImage">
+                <a (click)="openFile(typesProblems.problemImageContentType, typesProblems.problemImage)">
+                    <img [src]="'data:' + typesProblems.problemImageContentType + ';base64,' + typesProblems.problemImage" style="max-width: 100%;" alt="typesProblems image"/>
+                </a>
+                {{typesProblems.problemImageContentType}}, {{byteSize(typesProblems.problemImage)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.typesProblems.typesDocument">Types Document</span></dt>
+        <dd>
+            <div *ngIf="typesProblems.typesDocument">
+                <a (click)="openFile(typesProblems.typesDocumentContentType, typesProblems.typesDocument)" jhiTranslate="entity.action.open">open</a>
+                {{typesProblems.typesDocumentContentType}}, {{byteSize(typesProblems.typesDocument)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.typesProblems.unit">Unit</span></dt>
+        <dd>
+            <div *ngIf="typesProblems.unit">
+                <a [routerLink]="['/unit', typesProblems.unit?.id]">{{typesProblems.unit?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'types-problems/'+ typesProblems.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -15,6 +15,7 @@ import { JhipsterAppRoutingModule} from './app-routing.module';
 import { JhipsterHomeModule } from './home/home.module';
 import { JhipsterAdminModule } from './admin/admin.module';
 import { JhipsterAccountModule } from './account/account.module';
+import { JhipsterPageSetsModule } from './pages/page-sets.module';
 import { JhipsterEntityModule } from './entities/entity.module';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
@@ -36,6 +37,7 @@ import {
         JhipsterSharedModule,
         JhipsterHomeModule,
         JhipsterAdminModule,
+        JhipsterPageSetsModule,
         JhipsterAccountModule,
         JhipsterEntityModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
