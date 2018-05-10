@@ -107,7 +107,7 @@ export class TeachstateComponent implements OnInit, OnDestroy {
 
     onClickMe(uId:any) {
         this.unId=this.units[uId].id;
-      //  this.showImg();
+      this.unName=this.units[uId].unitName;
 
     }
 

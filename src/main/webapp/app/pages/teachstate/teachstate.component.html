@@ -21,23 +21,15 @@
     </span>
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
-        <div class="carousel-inner"   >
-            <div class="carousel-item active" *ngFor="let image of images ;trackBy: trackId let i =index;">
+        <div class="carousel-inner" *ngFor="let image of images ;trackBy: trackId let i =index;"   >
+            <div class="carousel-item active" *ngIf="image.unit.id==unId" >
 
-                <img class="d-block w-100" *ngIf="image.unit.id==unId" [src]="'data:' + image.imageContentType + ';base64,' + image.image" alt="slide">
+                <img class="d-block w-100"  [src]="'data:' + image.imageContentType + ';base64,' + image.image" alt="slide">
                 <br>
                 <hr>
                 <br>
             </div>
-
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+
     </div>
 </div>

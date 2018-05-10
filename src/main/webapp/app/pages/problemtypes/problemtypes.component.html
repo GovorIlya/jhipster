@@ -1,18 +1,18 @@
 <div>
     <h2><span data-translate="jhipsterApp.problemtypes.problemtypes.title">Problemtypes</span></h2>
     <hr>
-    <jhi-alert-error></jhi-alert-error>
+    <button pButton type="button" label="Click"></button>
 
-<div class="table-responsive" *ngIf="problemtypes">
-    <table class="table table-striped">
-        <thead>
-        <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let problemtypes of problemtypes ;trackBy: trackId">
-</tr>
-</tbody>
-</table>
-</div>
+    <p-dataList [value]="container">
+            <ng-template let-type pTemplate="item">
+                <img src="{{type.kartinka}}">
+                <p-dataTable [value]="type.types" sortField="problem"  rowGroupMode="rowspan" groupField="problem" [style]="{'margin-top':'50px'}">
+                    <p-header>{{type.stroka}}</p-header>
+                    <!--<ng-template pTemplate="rowgroupheader" let-rowData>{{rowData['brand']}}</ng-template>-->
+                    <p-column field="problem" header="Проявление" sortable="false"></p-column>
+                    <p-column field="variant" header="Возможные" sortable="false"></p-column>
+                    <p-column field="resheniye" header="Профилактика" sortable="false"></p-column>
+                </p-dataTable>
+            </ng-template>
+    </p-dataList>
 </div>

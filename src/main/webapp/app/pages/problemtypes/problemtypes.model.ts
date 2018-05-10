@@ -1,6 +1,6 @@
 
 export class Problemtypes {
-    constructor(
-    ) {
-    }
+    public problem: string;
+    public variant: string;
+    public resheniye: string;
 }

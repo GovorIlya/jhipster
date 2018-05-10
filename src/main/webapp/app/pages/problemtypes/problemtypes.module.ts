@@ -7,6 +7,10 @@ import {
     ProblemtypesComponent,
     ProblemtypesRoute,
 } from './';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AccordionModule, RatingModule, CalendarModule, ButtonModule } from 'primeng/primeng';
+import {DataTableModule} from 'primeng/datatable';
+import {DataListModule} from 'primeng/datalist';
 
 const PAGE_SET_STATES = [
     ...ProblemtypesRoute,
@@ -14,6 +18,13 @@ const PAGE_SET_STATES = [
 
 @NgModule({
     imports: [
+        BrowserAnimationsModule,
+        AccordionModule,
+        RatingModule,
+        CalendarModule,
+        ButtonModule,
+        DataTableModule,
+        DataListModule,
         JhipsterSharedModule,
         RouterModule.forRoot(PAGE_SET_STATES, { useHash: true })
     ],
