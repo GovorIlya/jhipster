@@ -1,6 +1,5 @@
 package com.mycompany.myapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -39,10 +38,6 @@ public class UnitDescription implements Serializable {
     @Lob
     @Column(name = "description")
     private String description;
-
-    @OneToOne(mappedBy = "unitDescription")
-    @JsonIgnore
-    private Unit unit;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -129,19 +124,6 @@ public class UnitDescription implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public UnitDescription unit(Unit unit) {
-        this.unit = unit;
-        return this;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

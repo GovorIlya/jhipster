@@ -4,12 +4,11 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
+import { JhiEventManager, JhiDataUtils } from 'ng-jhipster';
 
 import { UnitDescription } from './unit-description.model';
 import { UnitDescriptionPopupService } from './unit-description-popup.service';
 import { UnitDescriptionService } from './unit-description.service';
-import { Unit, UnitService } from '../unit';
 
 @Component({
     selector: 'jhi-unit-description-dialog',
@@ -20,22 +19,16 @@ export class UnitDescriptionDialogComponent implements OnInit {
     unitDescription: UnitDescription;
     isSaving: boolean;
 
-    units: Unit[];
-
     constructor(
         public activeModal: NgbActiveModal,
         private dataUtils: JhiDataUtils,
-        private jhiAlertService: JhiAlertService,
         private unitDescriptionService: UnitDescriptionService,
-        private unitService: UnitService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.unitService.query()
-            .subscribe((res: HttpResponse<Unit[]>) => { this.units = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -78,14 +71,6 @@ export class UnitDescriptionDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
-    }
-
-    private onError(error: any) {
-        this.jhiAlertService.error(error.message, null, null);
-    }
-
-    trackUnitById(index: number, item: Unit) {
-        return item.id;
     }
 }
 

@@ -25,10 +25,24 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="jhipsterApp.unit.unitDescription" for="field_unitDescription">Unit Description</label>
-            <select class="form-control" id="field_unitDescription" name="unitDescription" [(ngModel)]="unit.unitDescription">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.unit.description" for="field_description">Description</label>
+            <select class="form-control" id="field_description" name="description" [(ngModel)]="unit.description">
                 <option [ngValue]="null"></option>
-                <option [ngValue]="unitDescriptionOption.id === unit.unitDescription?.id ? unit.unitDescription : unitDescriptionOption" *ngFor="let unitDescriptionOption of unitdescriptions; trackBy: trackUnitDescriptionById">{{unitDescriptionOption.id}}</option>
+                <option [ngValue]="unitDescriptionOption.id === unit.description?.id ? unit.description : unitDescriptionOption" *ngFor="let unitDescriptionOption of descriptions; trackBy: trackUnitDescriptionById">{{unitDescriptionOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.unit.resaerchMethod" for="field_resaerchMethod">Resaerch Method</label>
+            <select class="form-control" id="field_resaerchMethod" name="resaerchMethod" [(ngModel)]="unit.resaerchMethod">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="researchMethodOption.id === unit.resaerchMethod?.id ? unit.resaerchMethod : researchMethodOption" *ngFor="let researchMethodOption of resaerchmethods; trackBy: trackResearchMethodById">{{researchMethodOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.unit.ratingMethod" for="field_ratingMethod">Rating Method</label>
+            <select class="form-control" id="field_ratingMethod" name="ratingMethod" [(ngModel)]="unit.ratingMethod">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ratingMethodOption.id === unit.ratingMethod?.id ? unit.ratingMethod : ratingMethodOption" *ngFor="let ratingMethodOption of ratingmethods; trackBy: trackRatingMethodById">{{ratingMethodOption.id}}</option>
             </select>
         </div>
     </div>

@@ -5,21 +5,25 @@
         "menu": {
             "home": "Главная",
             "kapta-kapta": "карта",
-            "description-description": "Description",
-            "teachstate-teachstate": "Teachstate",
-            "researchmethod-researchmethod": "Researchmethod",
-            "problemtypes-problemtypes": "Problemtypes",
-            "factormethod-factormethod": "Factormethod",
+            "description-description": "Описание",
+            "teachstate-teachstate": "Техническое состояние",
+            "researchmethod-researchmethod": "Методика обследований",
+            "problemtypes-problemtypes": "Виды нарушений и их профилактика",
+            "factormethod-factormethod": "Методика оценки поражающих факторов",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Сущности",
-                "unit": "Объект",
-                "unitDescription": "Описание объекта",
-                "image": "Изображения",
-                "researchMethod": "Метод обследования",
-                "typesProblems": "Виды характерных нарушений",
-                "ratingMethod": "Методика оценки",
 
+                "image": "Изображения",
+
+
+                "unit": "Объект",
+                "unitDescription": "Опсиание объекта",
+                "researchMethod": "Метож обследования",
+                "typesProblems": "Виды нарушений и их профилактика",
+                "ratingMethod": "Методика оценки поражающих факторов",
+                "proyavlenie": "Проявление аварийных ситуаций",
+                "reasonAndProfilactic": "Возможные причины аварийных ситуаций",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

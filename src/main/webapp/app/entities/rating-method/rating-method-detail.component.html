@@ -28,12 +28,6 @@
                 {{ratingMethod.ratingDocumentContentType}}, {{byteSize(ratingMethod.ratingDocument)}}
             </div>
         </dd>
-        <dt><span jhiTranslate="jhipsterApp.ratingMethod.unit">Unit</span></dt>
-        <dd>
-            <div *ngIf="ratingMethod.unit">
-                <a [routerLink]="['/unit', ratingMethod.unit?.id]">{{ratingMethod.unit?.id}}</a>
-            </div>
-        </dd>
     </dl>
 
     <button type="submit"

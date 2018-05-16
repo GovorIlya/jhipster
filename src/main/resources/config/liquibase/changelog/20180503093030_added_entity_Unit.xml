@@ -24,7 +24,11 @@
             <column name="unit_name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="unit_description_id" type="bigint">
+            <column name="description_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>            <column name="resaerch_method_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>            <column name="rating_method_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->

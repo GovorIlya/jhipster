@@ -11,11 +11,15 @@
     <include file="config/liquibase/changelog/20180503093033_added_entity_ResearchMethod.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180503093034_added_entity_TypesProblems.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180503093035_added_entity_RatingMethod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180510051138_added_entity_Proyavlenie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180510051139_added_entity_ReasonAndProfilactic.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180503093030_added_entity_constraints_Unit.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180503093032_added_entity_constraints_Image.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180503093033_added_entity_constraints_ResearchMethod.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180503093034_added_entity_constraints_TypesProblems.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180503093035_added_entity_constraints_RatingMethod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180510051138_added_entity_constraints_Proyavlenie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180510051139_added_entity_constraints_ReasonAndProfilactic.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

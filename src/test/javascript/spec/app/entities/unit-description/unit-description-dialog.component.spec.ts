@@ -9,7 +9,6 @@ import { JhipsterTestModule } from '../../../test.module';
 import { UnitDescriptionDialogComponent } from '../../../../../../main/webapp/app/entities/unit-description/unit-description-dialog.component';
 import { UnitDescriptionService } from '../../../../../../main/webapp/app/entities/unit-description/unit-description.service';
 import { UnitDescription } from '../../../../../../main/webapp/app/entities/unit-description/unit-description.model';
-import { UnitService } from '../../../../../../main/webapp/app/entities/unit';
 
 describe('Component Tests', () => {
 
@@ -25,7 +24,6 @@ describe('Component Tests', () => {
                 imports: [JhipsterTestModule],
                 declarations: [UnitDescriptionDialogComponent],
                 providers: [
-                    UnitService,
                     UnitDescriptionService
                 ]
             })

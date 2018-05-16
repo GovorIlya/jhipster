@@ -106,7 +106,7 @@ export class KaptaComponent implements OnInit, OnDestroy,AfterViewInit {
         this.mapsAPILoader.load().then(
             ()=>{
                 let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement, {
-                    types:["address"], //'(regions)'
+                    types:['(regions)'], // "address"
                     componentRestrictions: {country: 'by'}
                 });
 

@@ -18,21 +18,6 @@
                 [(ngModel)]="typesProblems.nameOfType" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.proyavlenie" for="field_proyavlenie">Proyavlenie</label>
-            <textarea class="form-control" name="proyavlenie" id="field_proyavlenie"
-                [(ngModel)]="typesProblems.proyavlenie" ></textarea>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.reasons" for="field_reasons">Reasons</label>
-            <textarea class="form-control" name="reasons" id="field_reasons"
-                [(ngModel)]="typesProblems.reasons" ></textarea>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.profilactika" for="field_profilactika">Profilactika</label>
-            <textarea class="form-control" name="profilactika" id="field_profilactika"
-                [(ngModel)]="typesProblems.profilactika" ></textarea>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.problemImage" for="field_problemImage">Problem Image</label>
             <div>
                 <img [src]="'data:' + typesProblems.problemImageContentType + ';base64,' + typesProblems.problemImage" style="max-height: 100px;" *ngIf="typesProblems.problemImage" alt="typesProblems image"/>
@@ -48,24 +33,6 @@
                 [(ngModel)]="typesProblems.problemImage" />
             <input type="hidden" class="form-control" name="problemImageContentType" id="field_problemImageContentType"
                 [(ngModel)]="typesProblems.problemImageContentType" />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="jhipsterApp.typesProblems.typesDocument" for="field_typesDocument">Types Document</label>
-            <div>
-                <div *ngIf="typesProblems.typesDocument" class="form-text text-danger clearfix">
-                    <a class="pull-left" (click)="openFile(typesProblems.typesDocumentContentType, typesProblems.typesDocument)" jhiTranslate="entity.action.open">open</a><br>
-                    <span class="pull-left">{{typesProblems.typesDocumentContentType}}, {{byteSize(typesProblems.typesDocument)}}</span>
-                    <button type="button" (click)="typesProblems.typesDocument=null;typesProblems.typesDocumentContentType=null;"
-                            class="btn btn-secondary btn-xs pull-right">
-                        <span class="fa fa-times"></span>
-                    </button>
-                </div>
-                <input type="file" id="file_typesDocument" (change)="setFileData($event, typesProblems, 'typesDocument', false)" jhiTranslate="entity.action.addblob"/>
-            </div>
-            <input type="hidden" class="form-control" name="typesDocument" id="field_typesDocument"
-                [(ngModel)]="typesProblems.typesDocument" />
-            <input type="hidden" class="form-control" name="typesDocumentContentType" id="field_typesDocumentContentType"
-                [(ngModel)]="typesProblems.typesDocumentContentType" />
         </div>
 
         <div class="form-group">

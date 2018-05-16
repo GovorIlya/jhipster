@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "typesProblems",
+            "otherEntityName": "typesProblems",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "reasonAndProfilactic",
+            "otherEntityName": "reasonAndProfilactic",
+            "otherEntityRelationshipName": "proyavlenie"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "text1",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180510051138",
+    "entityTableName": "proyavlenie",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

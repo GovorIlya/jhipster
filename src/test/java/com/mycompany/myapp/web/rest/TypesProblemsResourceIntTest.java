@@ -42,24 +42,10 @@ public class TypesProblemsResourceIntTest {
     private static final String DEFAULT_NAME_OF_TYPE = "AAAAAAAAAA";
     private static final String UPDATED_NAME_OF_TYPE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_PROYAVLENIE = "AAAAAAAAAA";
-    private static final String UPDATED_PROYAVLENIE = "BBBBBBBBBB";
-
-    private static final String DEFAULT_REASONS = "AAAAAAAAAA";
-    private static final String UPDATED_REASONS = "BBBBBBBBBB";
-
-    private static final String DEFAULT_PROFILACTIKA = "AAAAAAAAAA";
-    private static final String UPDATED_PROFILACTIKA = "BBBBBBBBBB";
-
     private static final byte[] DEFAULT_PROBLEM_IMAGE = TestUtil.createByteArray(1, "0");
     private static final byte[] UPDATED_PROBLEM_IMAGE = TestUtil.createByteArray(2, "1");
     private static final String DEFAULT_PROBLEM_IMAGE_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_PROBLEM_IMAGE_CONTENT_TYPE = "image/png";
-
-    private static final byte[] DEFAULT_TYPES_DOCUMENT = TestUtil.createByteArray(1, "0");
-    private static final byte[] UPDATED_TYPES_DOCUMENT = TestUtil.createByteArray(2, "1");
-    private static final String DEFAULT_TYPES_DOCUMENT_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_TYPES_DOCUMENT_CONTENT_TYPE = "image/png";
 
     @Autowired
     private TypesProblemsRepository typesProblemsRepository;
@@ -100,13 +86,8 @@ public class TypesProblemsResourceIntTest {
     public static TypesProblems createEntity(EntityManager em) {
         TypesProblems typesProblems = new TypesProblems()
             .nameOfType(DEFAULT_NAME_OF_TYPE)
-            .proyavlenie(DEFAULT_PROYAVLENIE)
-            .reasons(DEFAULT_REASONS)
-            .profilactika(DEFAULT_PROFILACTIKA)
             .problemImage(DEFAULT_PROBLEM_IMAGE)
-            .problemImageContentType(DEFAULT_PROBLEM_IMAGE_CONTENT_TYPE)
-            .typesDocument(DEFAULT_TYPES_DOCUMENT)
-            .typesDocumentContentType(DEFAULT_TYPES_DOCUMENT_CONTENT_TYPE);
+            .problemImageContentType(DEFAULT_PROBLEM_IMAGE_CONTENT_TYPE);
         return typesProblems;
     }
 
@@ -131,13 +112,8 @@ public class TypesProblemsResourceIntTest {
         assertThat(typesProblemsList).hasSize(databaseSizeBeforeCreate + 1);
         TypesProblems testTypesProblems = typesProblemsList.get(typesProblemsList.size() - 1);
         assertThat(testTypesProblems.getNameOfType()).isEqualTo(DEFAULT_NAME_OF_TYPE);
-        assertThat(testTypesProblems.getProyavlenie()).isEqualTo(DEFAULT_PROYAVLENIE);
-        assertThat(testTypesProblems.getReasons()).isEqualTo(DEFAULT_REASONS);
-        assertThat(testTypesProblems.getProfilactika()).isEqualTo(DEFAULT_PROFILACTIKA);
         assertThat(testTypesProblems.getProblemImage()).isEqualTo(DEFAULT_PROBLEM_IMAGE);
         assertThat(testTypesProblems.getProblemImageContentType()).isEqualTo(DEFAULT_PROBLEM_IMAGE_CONTENT_TYPE);
-        assertThat(testTypesProblems.getTypesDocument()).isEqualTo(DEFAULT_TYPES_DOCUMENT);
-        assertThat(testTypesProblems.getTypesDocumentContentType()).isEqualTo(DEFAULT_TYPES_DOCUMENT_CONTENT_TYPE);
     }
 
     @Test
@@ -171,13 +147,8 @@ public class TypesProblemsResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(typesProblems.getId().intValue())))
             .andExpect(jsonPath("$.[*].nameOfType").value(hasItem(DEFAULT_NAME_OF_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].proyavlenie").value(hasItem(DEFAULT_PROYAVLENIE.toString())))
-            .andExpect(jsonPath("$.[*].reasons").value(hasItem(DEFAULT_REASONS.toString())))
-            .andExpect(jsonPath("$.[*].profilactika").value(hasItem(DEFAULT_PROFILACTIKA.toString())))
             .andExpect(jsonPath("$.[*].problemImageContentType").value(hasItem(DEFAULT_PROBLEM_IMAGE_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].problemImage").value(hasItem(Base64Utils.encodeToString(DEFAULT_PROBLEM_IMAGE))))
-            .andExpect(jsonPath("$.[*].typesDocumentContentType").value(hasItem(DEFAULT_TYPES_DOCUMENT_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].typesDocument").value(hasItem(Base64Utils.encodeToString(DEFAULT_TYPES_DOCUMENT))));
+            .andExpect(jsonPath("$.[*].problemImage").value(hasItem(Base64Utils.encodeToString(DEFAULT_PROBLEM_IMAGE))));
     }
 
     @Test
@@ -192,13 +163,8 @@ public class TypesProblemsResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(typesProblems.getId().intValue()))
             .andExpect(jsonPath("$.nameOfType").value(DEFAULT_NAME_OF_TYPE.toString()))
-            .andExpect(jsonPath("$.proyavlenie").value(DEFAULT_PROYAVLENIE.toString()))
-            .andExpect(jsonPath("$.reasons").value(DEFAULT_REASONS.toString()))
-            .andExpect(jsonPath("$.profilactika").value(DEFAULT_PROFILACTIKA.toString()))
             .andExpect(jsonPath("$.problemImageContentType").value(DEFAULT_PROBLEM_IMAGE_CONTENT_TYPE))
-            .andExpect(jsonPath("$.problemImage").value(Base64Utils.encodeToString(DEFAULT_PROBLEM_IMAGE)))
-            .andExpect(jsonPath("$.typesDocumentContentType").value(DEFAULT_TYPES_DOCUMENT_CONTENT_TYPE))
-            .andExpect(jsonPath("$.typesDocument").value(Base64Utils.encodeToString(DEFAULT_TYPES_DOCUMENT)));
+            .andExpect(jsonPath("$.problemImage").value(Base64Utils.encodeToString(DEFAULT_PROBLEM_IMAGE)));
     }
 
     @Test
@@ -222,13 +188,8 @@ public class TypesProblemsResourceIntTest {
         em.detach(updatedTypesProblems);
         updatedTypesProblems
             .nameOfType(UPDATED_NAME_OF_TYPE)
-            .proyavlenie(UPDATED_PROYAVLENIE)
-            .reasons(UPDATED_REASONS)
-            .profilactika(UPDATED_PROFILACTIKA)
             .problemImage(UPDATED_PROBLEM_IMAGE)
-            .problemImageContentType(UPDATED_PROBLEM_IMAGE_CONTENT_TYPE)
-            .typesDocument(UPDATED_TYPES_DOCUMENT)
-            .typesDocumentContentType(UPDATED_TYPES_DOCUMENT_CONTENT_TYPE);
+            .problemImageContentType(UPDATED_PROBLEM_IMAGE_CONTENT_TYPE);
 
         restTypesProblemsMockMvc.perform(put("/api/types-problems")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -240,13 +201,8 @@ public class TypesProblemsResourceIntTest {
         assertThat(typesProblemsList).hasSize(databaseSizeBeforeUpdate);
         TypesProblems testTypesProblems = typesProblemsList.get(typesProblemsList.size() - 1);
         assertThat(testTypesProblems.getNameOfType()).isEqualTo(UPDATED_NAME_OF_TYPE);
-        assertThat(testTypesProblems.getProyavlenie()).isEqualTo(UPDATED_PROYAVLENIE);
-        assertThat(testTypesProblems.getReasons()).isEqualTo(UPDATED_REASONS);
-        assertThat(testTypesProblems.getProfilactika()).isEqualTo(UPDATED_PROFILACTIKA);
         assertThat(testTypesProblems.getProblemImage()).isEqualTo(UPDATED_PROBLEM_IMAGE);
         assertThat(testTypesProblems.getProblemImageContentType()).isEqualTo(UPDATED_PROBLEM_IMAGE_CONTENT_TYPE);
-        assertThat(testTypesProblems.getTypesDocument()).isEqualTo(UPDATED_TYPES_DOCUMENT);
-        assertThat(testTypesProblems.getTypesDocumentContentType()).isEqualTo(UPDATED_TYPES_DOCUMENT_CONTENT_TYPE);
     }
 
     @Test

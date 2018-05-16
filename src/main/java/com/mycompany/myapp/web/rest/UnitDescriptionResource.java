@@ -17,8 +17,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing UnitDescription.
@@ -82,19 +80,11 @@ public class UnitDescriptionResource {
     /**
      * GET  /unit-descriptions : get all the unitDescriptions.
      *
-     * @param filter the filter of the request
      * @return the ResponseEntity with status 200 (OK) and the list of unitDescriptions in body
      */
     @GetMapping("/unit-descriptions")
     @Timed
-    public List<UnitDescription> getAllUnitDescriptions(@RequestParam(required = false) String filter) {
-        if ("unit-is-null".equals(filter)) {
-            log.debug("REST request to get all UnitDescriptions where unit is null");
-            return StreamSupport
-                .stream(unitDescriptionRepository.findAll().spliterator(), false)
-                .filter(unitDescription -> unitDescription.getUnit() == null)
-                .collect(Collectors.toList());
-        }
+    public List<UnitDescription> getAllUnitDescriptions() {
         log.debug("REST request to get all UnitDescriptions");
         return unitDescriptionRepository.findAll();
         }

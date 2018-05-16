@@ -4,12 +4,11 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
+import { JhiEventManager, JhiDataUtils } from 'ng-jhipster';
 
 import { RatingMethod } from './rating-method.model';
 import { RatingMethodPopupService } from './rating-method-popup.service';
 import { RatingMethodService } from './rating-method.service';
-import { Unit, UnitService } from '../unit';
 
 @Component({
     selector: 'jhi-rating-method-dialog',
@@ -20,14 +19,10 @@ export class RatingMethodDialogComponent implements OnInit {
     ratingMethod: RatingMethod;
     isSaving: boolean;
 
-    units: Unit[];
-
     constructor(
         public activeModal: NgbActiveModal,
         private dataUtils: JhiDataUtils,
-        private jhiAlertService: JhiAlertService,
         private ratingMethodService: RatingMethodService,
-        private unitService: UnitService,
         private elementRef: ElementRef,
         private eventManager: JhiEventManager
     ) {
@@ -35,8 +30,6 @@ export class RatingMethodDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.unitService.query()
-            .subscribe((res: HttpResponse<Unit[]>) => { this.units = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -83,14 +76,6 @@ export class RatingMethodDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
-    }
-
-    private onError(error: any) {
-        this.jhiAlertService.error(error.message, null, null);
-    }
-
-    trackUnitById(index: number, item: Unit) {
-        return item.id;
     }
 }
 

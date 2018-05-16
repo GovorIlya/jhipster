@@ -18,11 +18,7 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="jhipsterApp.typesProblems.nameOfType">Name Of Type</span></th>
-            <th><span jhiTranslate="jhipsterApp.typesProblems.proyavlenie">Proyavlenie</span></th>
-            <th><span jhiTranslate="jhipsterApp.typesProblems.reasons">Reasons</span></th>
-            <th><span jhiTranslate="jhipsterApp.typesProblems.profilactika">Profilactika</span></th>
             <th><span jhiTranslate="jhipsterApp.typesProblems.problemImage">Problem Image</span></th>
-            <th><span jhiTranslate="jhipsterApp.typesProblems.typesDocument">Types Document</span></th>
             <th><span jhiTranslate="jhipsterApp.typesProblems.unit">Unit</span></th>
             <th></th>
             </tr>
@@ -31,18 +27,11 @@
             <tr *ngFor="let typesProblems of typesProblems ;trackBy: trackId">
                 <td><a [routerLink]="['../types-problems', typesProblems.id ]">{{typesProblems.id}}</a></td>
                 <td>{{typesProblems.nameOfType}}</td>
-                <td>{{typesProblems.proyavlenie}}</td>
-                <td>{{typesProblems.reasons}}</td>
-                <td>{{typesProblems.profilactika}}</td>
                 <td>
                     <a *ngIf="typesProblems.problemImage" (click)="openFile(typesProblems.problemImageContentType, typesProblems.problemImage)">
                         <img [src]="'data:' + typesProblems.problemImageContentType + ';base64,' + typesProblems.problemImage" style="max-height: 30px;" alt="typesProblems image"/>
                     </a>
                     <span *ngIf="typesProblems.problemImage">{{typesProblems.problemImageContentType}}, {{byteSize(typesProblems.problemImage)}}</span>
-                </td>
-                <td>
-                    <a *ngIf="typesProblems.typesDocument" (click)="openFile(typesProblems.typesDocumentContentType, typesProblems.typesDocument)" jhiTranslate="entity.action.open">open</a>
-                    <span *ngIf="typesProblems.typesDocument">{{typesProblems.typesDocumentContentType}}, {{byteSize(typesProblems.typesDocument)}}</span>
                 </td>
                 <td>
                     <div *ngIf="typesProblems.unit">

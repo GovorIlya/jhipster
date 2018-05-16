@@ -8,11 +8,23 @@
     -->
     <changeSet id="20180503093030-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="unit_description_id"
+        <addForeignKeyConstraint baseColumnNames="description_id"
                                  baseTableName="unit"
-                                 constraintName="fk_unit_unit_description_id"
+                                 constraintName="fk_unit_description_id"
                                  referencedColumnNames="id"
                                  referencedTableName="unit_description"/>
+
+        <addForeignKeyConstraint baseColumnNames="resaerch_method_id"
+                                 baseTableName="unit"
+                                 constraintName="fk_unit_resaerch_method_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="research_method"/>
+
+        <addForeignKeyConstraint baseColumnNames="rating_method_id"
+                                 baseTableName="unit"
+                                 constraintName="fk_unit_rating_method_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rating_method"/>
 
     </changeSet>
 </databaseChangeLog>

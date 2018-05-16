@@ -10,6 +10,8 @@ import { Unit } from './unit.model';
 import { UnitPopupService } from './unit-popup.service';
 import { UnitService } from './unit.service';
 import { UnitDescription, UnitDescriptionService } from '../unit-description';
+import { ResearchMethod, ResearchMethodService } from '../research-method';
+import { RatingMethod, RatingMethodService } from '../rating-method';
 
 @Component({
     selector: 'jhi-unit-dialog',
@@ -20,13 +22,19 @@ export class UnitDialogComponent implements OnInit {
     unit: Unit;
     isSaving: boolean;
 
-    unitdescriptions: UnitDescription[];
+    descriptions: UnitDescription[];
+
+    resaerchmethods: ResearchMethod[];
+
+    ratingmethods: RatingMethod[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private unitService: UnitService,
         private unitDescriptionService: UnitDescriptionService,
+        private researchMethodService: ResearchMethodService,
+        private ratingMethodService: RatingMethodService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -36,13 +44,39 @@ export class UnitDialogComponent implements OnInit {
         this.unitDescriptionService
             .query({filter: 'unit-is-null'})
             .subscribe((res: HttpResponse<UnitDescription[]>) => {
-                if (!this.unit.unitDescription || !this.unit.unitDescription.id) {
-                    this.unitdescriptions = res.body;
+                if (!this.unit.description || !this.unit.description.id) {
+                    this.descriptions = res.body;
                 } else {
                     this.unitDescriptionService
-                        .find(this.unit.unitDescription.id)
+                        .find(this.unit.description.id)
                         .subscribe((subRes: HttpResponse<UnitDescription>) => {
-                            this.unitdescriptions = [subRes.body].concat(res.body);
+                            this.descriptions = [subRes.body].concat(res.body);
+                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
+                }
+            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.researchMethodService
+            .query({filter: 'unit-is-null'})
+            .subscribe((res: HttpResponse<ResearchMethod[]>) => {
+                if (!this.unit.resaerchMethod || !this.unit.resaerchMethod.id) {
+                    this.resaerchmethods = res.body;
+                } else {
+                    this.researchMethodService
+                        .find(this.unit.resaerchMethod.id)
+                        .subscribe((subRes: HttpResponse<ResearchMethod>) => {
+                            this.resaerchmethods = [subRes.body].concat(res.body);
+                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
+                }
+            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.ratingMethodService
+            .query({filter: 'unit-is-null'})
+            .subscribe((res: HttpResponse<RatingMethod[]>) => {
+                if (!this.unit.ratingMethod || !this.unit.ratingMethod.id) {
+                    this.ratingmethods = res.body;
+                } else {
+                    this.ratingMethodService
+                        .find(this.unit.ratingMethod.id)
+                        .subscribe((subRes: HttpResponse<RatingMethod>) => {
+                            this.ratingmethods = [subRes.body].concat(res.body);
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
@@ -83,6 +117,14 @@ export class UnitDialogComponent implements OnInit {
     }
 
     trackUnitDescriptionById(index: number, item: UnitDescription) {
+        return item.id;
+    }
+
+    trackResearchMethodById(index: number, item: ResearchMethod) {
+        return item.id;
+    }
+
+    trackRatingMethodById(index: number, item: RatingMethod) {
         return item.id;
     }
 }

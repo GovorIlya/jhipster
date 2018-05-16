@@ -13,7 +13,7 @@
                     <a class="nav-link dropdown-toggle" routerLinkActive="active" ngbDropdownToggle href="javascript:void(0);" id="kapta-menu">
                         <span>
                             <i class="fa fa-" aria-hidden="true"></i>
-                            <span>kapta</span>
+                            <span>Карта</span>
                         </span>
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu>
@@ -30,7 +30,7 @@
                     <a class="nav-link dropdown-toggle" routerLinkActive="active" ngbDropdownToggle href="javascript:void(0);" id="description-menu">
                         <span>
                             <i class="fa fa-" aria-hidden="true"></i>
-                            <span>description</span>
+                            <span>Описание</span>
                         </span>
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu>
@@ -47,7 +47,7 @@
                     <a class="nav-link dropdown-toggle" routerLinkActive="active" ngbDropdownToggle href="javascript:void(0);" id="teachstate-menu">
                         <span>
                             <i class="fa fa-" aria-hidden="true"></i>
-                            <span>teachstate</span>
+                            <span>Техническое состояние</span>
                         </span>
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu>
@@ -64,7 +64,7 @@
                     <a class="nav-link dropdown-toggle" routerLinkActive="active" ngbDropdownToggle href="javascript:void(0);" id="researchmethod-menu">
                         <span>
                             <i class="fa fa-" aria-hidden="true"></i>
-                            <span>researchmethod</span>
+                            <span>Метод обследования</span>
                         </span>
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu>
@@ -81,7 +81,7 @@
                     <a class="nav-link dropdown-toggle" routerLinkActive="active" ngbDropdownToggle href="javascript:void(0);" id="problemtypes-menu">
                         <span>
                             <i class="fa fa-" aria-hidden="true"></i>
-                            <span>problemtypes</span>
+                            <span>Виды нарушений</span>
                         </span>
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu>
@@ -98,7 +98,7 @@
                     <a class="nav-link dropdown-toggle" routerLinkActive="active" ngbDropdownToggle href="javascript:void(0);" id="factormethod-menu">
                         <span>
                             <i class="fa fa-" aria-hidden="true"></i>
-                            <span>factormethod</span>
+                            <span>Методика оценки поражающих факторов</span>
                         </span>
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu>
@@ -156,6 +156,18 @@
                         <a class="dropdown-item" routerLink="rating-method" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.ratingMethod">Rating Method</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="proyavlenie" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.proyavlenie">Proyavlenie</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="reason-and-profilactic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.reasonAndProfilactic">Reason And Profilactic</span>
                         </a>
                     </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->

@@ -9,7 +9,6 @@ export class ResearchMethod implements BaseEntity {
         public methodImage?: any,
         public fileContentType?: string,
         public file?: any,
-        public unit?: BaseEntity,
     ) {
     }
 }

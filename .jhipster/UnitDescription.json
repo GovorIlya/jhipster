@@ -1,14 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "unit",
-            "otherEntityName": "unit",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "unitDescription"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "createYear",

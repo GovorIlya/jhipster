@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "proyavlenie",
+            "otherEntityName": "proyavlenie",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "text2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "text3",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180510051139",
+    "entityTableName": "reason_and_profilactic",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

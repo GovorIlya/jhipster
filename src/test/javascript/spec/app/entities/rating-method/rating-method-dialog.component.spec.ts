@@ -9,7 +9,6 @@ import { JhipsterTestModule } from '../../../test.module';
 import { RatingMethodDialogComponent } from '../../../../../../main/webapp/app/entities/rating-method/rating-method-dialog.component';
 import { RatingMethodService } from '../../../../../../main/webapp/app/entities/rating-method/rating-method.service';
 import { RatingMethod } from '../../../../../../main/webapp/app/entities/rating-method/rating-method.model';
-import { UnitService } from '../../../../../../main/webapp/app/entities/unit';
 
 describe('Component Tests', () => {
 
@@ -25,7 +24,6 @@ describe('Component Tests', () => {
                 imports: [JhipsterTestModule],
                 declarations: [RatingMethodDialogComponent],
                 providers: [
-                    UnitService,
                     RatingMethodService
                 ]
             })

@@ -2,10 +2,16 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "many-to-one",
             "relationshipName": "unit",
             "otherEntityName": "unit",
+            "relationshipType": "many-to-one",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "proyavlenie",
+            "otherEntityName": "proyavlenie",
+            "otherEntityRelationshipName": "typesProblems"
         }
     ],
     "fields": [
@@ -14,29 +20,9 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "proyavlenie",
-            "fieldType": "byte[]",
-            "fieldTypeBlobContent": "text"
-        },
-        {
-            "fieldName": "reasons",
-            "fieldType": "byte[]",
-            "fieldTypeBlobContent": "text"
-        },
-        {
-            "fieldName": "profilactika",
-            "fieldType": "byte[]",
-            "fieldTypeBlobContent": "text"
-        },
-        {
             "fieldName": "problemImage",
             "fieldType": "byte[]",
             "fieldTypeBlobContent": "image"
-        },
-        {
-            "fieldName": "typesDocument",
-            "fieldType": "byte[]",
-            "fieldTypeBlobContent": "any"
         }
     ],
     "changelogDate": "20180503093034",

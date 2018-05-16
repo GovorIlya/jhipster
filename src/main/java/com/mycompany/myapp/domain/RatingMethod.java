@@ -41,9 +41,6 @@ public class RatingMethod implements Serializable {
     @Column(name = "rating_document_content_type")
     private String ratingDocumentContentType;
 
-    @ManyToOne
-    private Unit unit;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -129,19 +126,6 @@ public class RatingMethod implements Serializable {
 
     public void setRatingDocumentContentType(String ratingDocumentContentType) {
         this.ratingDocumentContentType = ratingDocumentContentType;
-    }
-
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public RatingMethod unit(Unit unit) {
-        this.unit = unit;
-        return this;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

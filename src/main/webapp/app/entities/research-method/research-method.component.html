@@ -21,7 +21,6 @@
             <th><span jhiTranslate="jhipsterApp.researchMethod.researchMethod">Research Method</span></th>
             <th><span jhiTranslate="jhipsterApp.researchMethod.methodImage">Method Image</span></th>
             <th><span jhiTranslate="jhipsterApp.researchMethod.file">File</span></th>
-            <th><span jhiTranslate="jhipsterApp.researchMethod.unit">Unit</span></th>
             <th></th>
             </tr>
             </thead>
@@ -39,11 +38,6 @@
                 <td>
                     <a *ngIf="researchMethod.file" (click)="openFile(researchMethod.fileContentType, researchMethod.file)" jhiTranslate="entity.action.open">open</a>
                     <span *ngIf="researchMethod.file">{{researchMethod.fileContentType}}, {{byteSize(researchMethod.file)}}</span>
-                </td>
-                <td>
-                    <div *ngIf="researchMethod.unit">
-                        <a [routerLink]="['../unit', researchMethod.unit?.id ]" >{{researchMethod.unit?.id}}</a>
-                    </div>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

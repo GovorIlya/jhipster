@@ -30,7 +30,15 @@ public class Unit implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private UnitDescription unitDescription;
+    private UnitDescription description;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private ResearchMethod resaerchMethod;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private RatingMethod ratingMethod;
 
     @OneToMany(mappedBy = "unit")
     @JsonIgnore
@@ -38,15 +46,7 @@ public class Unit implements Serializable {
 
     @OneToMany(mappedBy = "unit")
     @JsonIgnore
-    private Set<ResearchMethod> researchMethods = new HashSet<>();
-
-    @OneToMany(mappedBy = "unit")
-    @JsonIgnore
     private Set<TypesProblems> typesProblems = new HashSet<>();
-
-    @OneToMany(mappedBy = "unit")
-    @JsonIgnore
-    private Set<RatingMethod> ratingMethods = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -70,17 +70,43 @@ public class Unit implements Serializable {
         this.unitName = unitName;
     }
 
-    public UnitDescription getUnitDescription() {
-        return unitDescription;
+    public UnitDescription getDescription() {
+        return description;
     }
 
-    public Unit unitDescription(UnitDescription unitDescription) {
-        this.unitDescription = unitDescription;
+    public Unit description(UnitDescription unitDescription) {
+        this.description = unitDescription;
         return this;
     }
 
-    public void setUnitDescription(UnitDescription unitDescription) {
-        this.unitDescription = unitDescription;
+    public void setDescription(UnitDescription unitDescription) {
+        this.description = unitDescription;
+    }
+
+    public ResearchMethod getResaerchMethod() {
+        return resaerchMethod;
+    }
+
+    public Unit resaerchMethod(ResearchMethod researchMethod) {
+        this.resaerchMethod = researchMethod;
+        return this;
+    }
+
+    public void setResaerchMethod(ResearchMethod researchMethod) {
+        this.resaerchMethod = researchMethod;
+    }
+
+    public RatingMethod getRatingMethod() {
+        return ratingMethod;
+    }
+
+    public Unit ratingMethod(RatingMethod ratingMethod) {
+        this.ratingMethod = ratingMethod;
+        return this;
+    }
+
+    public void setRatingMethod(RatingMethod ratingMethod) {
+        this.ratingMethod = ratingMethod;
     }
 
     public Set<Image> getImages() {
@@ -108,31 +134,6 @@ public class Unit implements Serializable {
         this.images = images;
     }
 
-    public Set<ResearchMethod> getResearchMethods() {
-        return researchMethods;
-    }
-
-    public Unit researchMethods(Set<ResearchMethod> researchMethods) {
-        this.researchMethods = researchMethods;
-        return this;
-    }
-
-    public Unit addResearchMethod(ResearchMethod researchMethod) {
-        this.researchMethods.add(researchMethod);
-        researchMethod.setUnit(this);
-        return this;
-    }
-
-    public Unit removeResearchMethod(ResearchMethod researchMethod) {
-        this.researchMethods.remove(researchMethod);
-        researchMethod.setUnit(null);
-        return this;
-    }
-
-    public void setResearchMethods(Set<ResearchMethod> researchMethods) {
-        this.researchMethods = researchMethods;
-    }
-
     public Set<TypesProblems> getTypesProblems() {
         return typesProblems;
     }
@@ -156,31 +157,6 @@ public class Unit implements Serializable {
 
     public void setTypesProblems(Set<TypesProblems> typesProblems) {
         this.typesProblems = typesProblems;
-    }
-
-    public Set<RatingMethod> getRatingMethods() {
-        return ratingMethods;
-    }
-
-    public Unit ratingMethods(Set<RatingMethod> ratingMethods) {
-        this.ratingMethods = ratingMethods;
-        return this;
-    }
-
-    public Unit addRatingMethod(RatingMethod ratingMethod) {
-        this.ratingMethods.add(ratingMethod);
-        ratingMethod.setUnit(this);
-        return this;
-    }
-
-    public Unit removeRatingMethod(RatingMethod ratingMethod) {
-        this.ratingMethods.remove(ratingMethod);
-        ratingMethod.setUnit(null);
-        return this;
-    }
-
-    public void setRatingMethods(Set<RatingMethod> ratingMethods) {
-        this.ratingMethods = ratingMethods;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

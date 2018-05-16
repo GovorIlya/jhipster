@@ -9,7 +9,6 @@ export class UnitDescription implements BaseEntity {
         public prst?: number,
         public sbros?: string,
         public description?: any,
-        public unit?: BaseEntity,
     ) {
     }
 }

@@ -25,29 +25,10 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="proyavlenie" type="clob">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="reasons" type="clob">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="profilactika" type="clob">
-                <constraints nullable="true" />
-            </column>
-
             <column name="problem_image" type="longblob">
                 <constraints nullable="true" />
             </column>
             <column name="problem_image_content_type" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="types_document" type="longblob">
-                <constraints nullable="true" />
-            </column>
-            <column name="types_document_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 

@@ -6,6 +6,8 @@ import { JhipsterImageModule } from './image/image.module';
 import { JhipsterResearchMethodModule } from './research-method/research-method.module';
 import { JhipsterTypesProblemsModule } from './types-problems/types-problems.module';
 import { JhipsterRatingMethodModule } from './rating-method/rating-method.module';
+import { JhipsterProyavlenieModule } from './proyavlenie/proyavlenie.module';
+import { JhipsterReasonAndProfilacticModule } from './reason-and-profilactic/reason-and-profilactic.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -16,6 +18,8 @@ import { JhipsterRatingMethodModule } from './rating-method/rating-method.module
         JhipsterResearchMethodModule,
         JhipsterTypesProblemsModule,
         JhipsterRatingMethodModule,
+        JhipsterProyavlenieModule,
+        JhipsterReasonAndProfilacticModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

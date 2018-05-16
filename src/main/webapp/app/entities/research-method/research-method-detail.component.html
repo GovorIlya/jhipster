@@ -28,12 +28,6 @@
                 {{researchMethod.fileContentType}}, {{byteSize(researchMethod.file)}}
             </div>
         </dd>
-        <dt><span jhiTranslate="jhipsterApp.researchMethod.unit">Unit</span></dt>
-        <dd>
-            <div *ngIf="researchMethod.unit">
-                <a [routerLink]="['/unit', researchMethod.unit?.id]">{{researchMethod.unit?.id}}</a>
-            </div>
-        </dd>
     </dl>
 
     <button type="submit"

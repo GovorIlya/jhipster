@@ -1,9 +1,12 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -24,33 +27,18 @@ public class TypesProblems implements Serializable {
     private String nameOfType;
 
     @Lob
-    @Column(name = "proyavlenie")
-    private String proyavlenie;
-
-    @Lob
-    @Column(name = "reasons")
-    private String reasons;
-
-    @Lob
-    @Column(name = "profilactika")
-    private String profilactika;
-
-    @Lob
     @Column(name = "problem_image")
     private byte[] problemImage;
 
     @Column(name = "problem_image_content_type")
     private String problemImageContentType;
 
-    @Lob
-    @Column(name = "types_document")
-    private byte[] typesDocument;
-
-    @Column(name = "types_document_content_type")
-    private String typesDocumentContentType;
-
     @ManyToOne
     private Unit unit;
+
+    @OneToMany(mappedBy = "typesProblems")
+    @JsonIgnore
+    private Set<Proyavlenie> proyavlenies = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -72,45 +60,6 @@ public class TypesProblems implements Serializable {
 
     public void setNameOfType(String nameOfType) {
         this.nameOfType = nameOfType;
-    }
-
-    public String getProyavlenie() {
-        return proyavlenie;
-    }
-
-    public TypesProblems proyavlenie(String proyavlenie) {
-        this.proyavlenie = proyavlenie;
-        return this;
-    }
-
-    public void setProyavlenie(String proyavlenie) {
-        this.proyavlenie = proyavlenie;
-    }
-
-    public String getReasons() {
-        return reasons;
-    }
-
-    public TypesProblems reasons(String reasons) {
-        this.reasons = reasons;
-        return this;
-    }
-
-    public void setReasons(String reasons) {
-        this.reasons = reasons;
-    }
-
-    public String getProfilactika() {
-        return profilactika;
-    }
-
-    public TypesProblems profilactika(String profilactika) {
-        this.profilactika = profilactika;
-        return this;
-    }
-
-    public void setProfilactika(String profilactika) {
-        this.profilactika = profilactika;
     }
 
     public byte[] getProblemImage() {
@@ -139,32 +88,6 @@ public class TypesProblems implements Serializable {
         this.problemImageContentType = problemImageContentType;
     }
 
-    public byte[] getTypesDocument() {
-        return typesDocument;
-    }
-
-    public TypesProblems typesDocument(byte[] typesDocument) {
-        this.typesDocument = typesDocument;
-        return this;
-    }
-
-    public void setTypesDocument(byte[] typesDocument) {
-        this.typesDocument = typesDocument;
-    }
-
-    public String getTypesDocumentContentType() {
-        return typesDocumentContentType;
-    }
-
-    public TypesProblems typesDocumentContentType(String typesDocumentContentType) {
-        this.typesDocumentContentType = typesDocumentContentType;
-        return this;
-    }
-
-    public void setTypesDocumentContentType(String typesDocumentContentType) {
-        this.typesDocumentContentType = typesDocumentContentType;
-    }
-
     public Unit getUnit() {
         return unit;
     }
@@ -176,6 +99,31 @@ public class TypesProblems implements Serializable {
 
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    public Set<Proyavlenie> getProyavlenies() {
+        return proyavlenies;
+    }
+
+    public TypesProblems proyavlenies(Set<Proyavlenie> proyavlenies) {
+        this.proyavlenies = proyavlenies;
+        return this;
+    }
+
+    public TypesProblems addProyavlenie(Proyavlenie proyavlenie) {
+        this.proyavlenies.add(proyavlenie);
+        proyavlenie.setTypesProblems(this);
+        return this;
+    }
+
+    public TypesProblems removeProyavlenie(Proyavlenie proyavlenie) {
+        this.proyavlenies.remove(proyavlenie);
+        proyavlenie.setTypesProblems(null);
+        return this;
+    }
+
+    public void setProyavlenies(Set<Proyavlenie> proyavlenies) {
+        this.proyavlenies = proyavlenies;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -204,13 +152,8 @@ public class TypesProblems implements Serializable {
         return "TypesProblems{" +
             "id=" + getId() +
             ", nameOfType='" + getNameOfType() + "'" +
-            ", proyavlenie='" + getProyavlenie() + "'" +
-            ", reasons='" + getReasons() + "'" +
-            ", profilactika='" + getProfilactika() + "'" +
             ", problemImage='" + getProblemImage() + "'" +
             ", problemImageContentType='" + getProblemImageContentType() + "'" +
-            ", typesDocument='" + getTypesDocument() + "'" +
-            ", typesDocumentContentType='" + getTypesDocumentContentType() + "'" +
             "}";
     }
 }

@@ -1,18 +1,37 @@
 <div>
-    <h2><span data-translate="jhipsterApp.problemtypes.problemtypes.title">Problemtypes</span></h2>
+    <h2><span data-translate="jhipsterApp.problemtypes.problemtypes.title">Виды характерных нарушений</span></h2>
     <hr>
-    <button pButton type="button" label="Click"></button>
+    <button pButton type="button" label="Посмотреть" (click)="onClickMe()"></button>
+    <h3>{{mytxt}}</h3>
 
-    <p-dataList [value]="container">
-            <ng-template let-type pTemplate="item">
-                <img src="{{type.kartinka}}">
+  <!--  <p-dataList [value]="typesProblems">
+    <ng-template let-type pTemplate="item">
+        <img [src]="'data:' + typesProblems[type].problemImageContentType + ';base64,' + typesProblems[type].problemImage">
+        <!-- problemImage.imageContentType-->
+
+       <!-- <p-dataTable [value]="proyavlenies" sortField="problem"  rowGroupMode="rowspan" groupField="problem" [style]="{'margin-top':'50px'}">
+            <p-header>{{typesProblems[type].nameOfType}}</p-header>
+            <!--<ng-template pTemplate="rowgroupheader" let-rowData>{{rowData['brand']}}</ng-template>-->
+         <!--   <p-column field="problem" header="Проявление"></p-column>
+            <p-column field="variant" header="Возможные" ></p-column>
+            <p-column field="resheniye" header="Профилактика" ></p-column>
+        </p-dataTable>
+    </ng-template>
+</p-dataList>-->
+
+  <p-dataList [value]="container">
+            <ng-template let-type pTemplate="item" >
+                <img *ngFor="let image of typesProblems ;trackBy: trackId let i =index;"  [src]="'data:' + image.problemImageContentType + ';base64,' + image.problemImage"
+                     style=" display: block; margin: 0 auto;" > <!--  src="{{test.kartinka}}"-->
                 <p-dataTable [value]="type.types" sortField="problem"  rowGroupMode="rowspan" groupField="problem" [style]="{'margin-top':'50px'}">
                     <p-header>{{type.stroka}}</p-header>
                     <!--<ng-template pTemplate="rowgroupheader" let-rowData>{{rowData['brand']}}</ng-template>-->
-                    <p-column field="problem" header="Проявление" sortable="false"></p-column>
-                    <p-column field="variant" header="Возможные" sortable="false"></p-column>
-                    <p-column field="resheniye" header="Профилактика" sortable="false"></p-column>
-                </p-dataTable>
-            </ng-template>
+ <p-column field="problem" header="Проявление аварийных ситуаций"></p-column>
+    <p-column field="variant" header="Возможные причины аварийных ситуаций" ></p-column>
+    <p-column field="resheniye" header="Профилактика аварийных ситуаций" ></p-column>
+    </p-dataTable>
+    </ng-template>
     </p-dataList>
+
+
 </div>

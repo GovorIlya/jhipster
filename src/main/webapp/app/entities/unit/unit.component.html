@@ -18,7 +18,9 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="jhipsterApp.unit.unitName">Unit Name</span></th>
-            <th><span jhiTranslate="jhipsterApp.unit.unitDescription">Unit Description</span></th>
+            <th><span jhiTranslate="jhipsterApp.unit.description">Description</span></th>
+            <th><span jhiTranslate="jhipsterApp.unit.resaerchMethod">Resaerch Method</span></th>
+            <th><span jhiTranslate="jhipsterApp.unit.ratingMethod">Rating Method</span></th>
             <th></th>
             </tr>
             </thead>
@@ -27,8 +29,18 @@
                 <td><a [routerLink]="['../unit', unit.id ]">{{unit.id}}</a></td>
                 <td>{{unit.unitName}}</td>
                 <td>
-                    <div *ngIf="unit.unitDescription">
-                        <a [routerLink]="['../unit-description', unit.unitDescription?.id ]" >{{unit.unitDescription?.id}}</a>
+                    <div *ngIf="unit.description">
+                        <a [routerLink]="['../unit-description', unit.description?.id ]" >{{unit.description?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="unit.resaerchMethod">
+                        <a [routerLink]="['../research-method', unit.resaerchMethod?.id ]" >{{unit.resaerchMethod?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="unit.ratingMethod">
+                        <a [routerLink]="['../rating-method', unit.ratingMethod?.id ]" >{{unit.ratingMethod?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">

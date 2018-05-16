@@ -9,7 +9,6 @@ export class RatingMethod implements BaseEntity {
         public ratingImage?: any,
         public ratingDocumentContentType?: string,
         public ratingDocument?: any,
-        public unit?: BaseEntity,
     ) {
     }
 }

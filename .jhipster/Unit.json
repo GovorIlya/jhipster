@@ -3,8 +3,24 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "unitDescription",
+            "relationshipName": "description",
             "otherEntityName": "unitDescription",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "unit"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "resaerchMethod",
+            "otherEntityName": "researchMethod",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "unit"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ratingMethod",
+            "otherEntityName": "ratingMethod",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "unit"
@@ -17,20 +33,8 @@
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "researchMethod",
-            "otherEntityName": "researchMethod",
-            "otherEntityRelationshipName": "unit"
-        },
-        {
-            "relationshipType": "one-to-many",
             "relationshipName": "typesProblems",
             "otherEntityName": "typesProblems",
-            "otherEntityRelationshipName": "unit"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "ratingMethod",
-            "otherEntityName": "ratingMethod",
             "otherEntityRelationshipName": "unit"
         }
     ],

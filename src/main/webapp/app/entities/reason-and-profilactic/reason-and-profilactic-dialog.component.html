@@ -1,0 +1,42 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myReasonAndProfilacticLabel" jhiTranslate="jhipsterApp.reasonAndProfilactic.home.createOrEditLabel">Create or edit a Reason And Profilactic</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!reasonAndProfilactic.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="reasonAndProfilactic.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.reasonAndProfilactic.text2" for="field_text2">Text 2</label>
+            <input type="text" class="form-control" name="text2" id="field_text2"
+                [(ngModel)]="reasonAndProfilactic.text2" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.reasonAndProfilactic.text3" for="field_text3">Text 3</label>
+            <input type="text" class="form-control" name="text3" id="field_text3"
+                [(ngModel)]="reasonAndProfilactic.text3" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.reasonAndProfilactic.proyavlenie" for="field_proyavlenie">Proyavlenie</label>
+            <select class="form-control" id="field_proyavlenie" name="proyavlenie" [(ngModel)]="reasonAndProfilactic.proyavlenie" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="proyavlenieOption.id === reasonAndProfilactic.proyavlenie?.id ? reasonAndProfilactic.proyavlenie : proyavlenieOption" *ngFor="let proyavlenieOption of proyavlenies; trackBy: trackProyavlenieById">{{proyavlenieOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

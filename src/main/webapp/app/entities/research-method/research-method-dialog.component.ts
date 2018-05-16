@@ -4,12 +4,11 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
+import { JhiEventManager, JhiDataUtils } from 'ng-jhipster';
 
 import { ResearchMethod } from './research-method.model';
 import { ResearchMethodPopupService } from './research-method-popup.service';
 import { ResearchMethodService } from './research-method.service';
-import { Unit, UnitService } from '../unit';
 
 @Component({
     selector: 'jhi-research-method-dialog',
@@ -20,14 +19,10 @@ export class ResearchMethodDialogComponent implements OnInit {
     researchMethod: ResearchMethod;
     isSaving: boolean;
 
-    units: Unit[];
-
     constructor(
         public activeModal: NgbActiveModal,
         private dataUtils: JhiDataUtils,
-        private jhiAlertService: JhiAlertService,
         private researchMethodService: ResearchMethodService,
-        private unitService: UnitService,
         private elementRef: ElementRef,
         private eventManager: JhiEventManager
     ) {
@@ -35,8 +30,6 @@ export class ResearchMethodDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.unitService.query()
-            .subscribe((res: HttpResponse<Unit[]>) => { this.units = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -83,14 +76,6 @@ export class ResearchMethodDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
-    }
-
-    private onError(error: any) {
-        this.jhiAlertService.error(error.message, null, null);
-    }
-
-    trackUnitById(index: number, item: Unit) {
-        return item.id;
     }
 }
 

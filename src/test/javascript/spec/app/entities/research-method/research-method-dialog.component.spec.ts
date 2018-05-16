@@ -9,7 +9,6 @@ import { JhipsterTestModule } from '../../../test.module';
 import { ResearchMethodDialogComponent } from '../../../../../../main/webapp/app/entities/research-method/research-method-dialog.component';
 import { ResearchMethodService } from '../../../../../../main/webapp/app/entities/research-method/research-method.service';
 import { ResearchMethod } from '../../../../../../main/webapp/app/entities/research-method/research-method.model';
-import { UnitService } from '../../../../../../main/webapp/app/entities/unit';
 
 describe('Component Tests', () => {
 
@@ -25,7 +24,6 @@ describe('Component Tests', () => {
                 imports: [JhipsterTestModule],
                 declarations: [ResearchMethodDialogComponent],
                 providers: [
-                    UnitService,
                     ResearchMethodService
                 ]
             })

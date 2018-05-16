@@ -8,12 +8,24 @@ import { Observable } from 'rxjs/Rx';
 import { Factormethod } from './factormethod.model';
 import { FactormethodService } from './factormethod.service';
 import { Principal } from '../../shared';
+import {Image} from '../../entities/image';
+import {Unit} from '../../entities/unit';
+import {UnitService} from '../../entities/unit';
+import {RatingMethod} from "../../entities/rating-method";
+import {RatingMethodService} from "../../entities/rating-method";
+import {ResearchMethodService} from "../../entities/research-method";
+import {ResearchMethod} from "../../entities/research-method";
 
 @Component({
     selector: 'jhi-factormethod',
     templateUrl: './factormethod.component.html'
 })
 export class FactormethodComponent implements OnInit, OnDestroy {
+    researchmethods: ResearchMethod[];
+    factormethods: Factormethod[];
+    ratingMethods:RatingMethod[];
+    units: Unit[];
+    unName:string;
 
     factormethod: Factormethod = new Factormethod();
 
@@ -31,6 +43,11 @@ export class FactormethodComponent implements OnInit, OnDestroy {
     reverse: any;
 
     constructor(
+        private factorMethodService: FactormethodService,
+        private ratingMethodService:RatingMethodService,
+        private unitService:UnitService,
+        private researchMethodService: ResearchMethodService,
+
         private factormethodService: FactormethodService,
         private parseLinks: JhiParseLinks,
         private jhiAlertService: JhiAlertService,
@@ -40,6 +57,30 @@ export class FactormethodComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
+        this.factorMethodService.query().subscribe(
+            (res: HttpResponse<Image[]>) => {
+                this.factormethods = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.researchMethodService.query().subscribe(
+            (res: HttpResponse<ResearchMethod[]>) => {
+                this.researchmethods= res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.ratingMethodService.query().subscribe(
+            (res: HttpResponse<Image[]>) => {
+                this.ratingMethods = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.unitService.query().subscribe(
+            (res: HttpResponse<Image[]>) => {
+                this.units = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 
     ngOnInit() {
@@ -69,5 +110,12 @@ export class FactormethodComponent implements OnInit, OnDestroy {
     }
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
+    }
+
+    onClickMe(uId:any) {
+        this.unName=this.units[uId].unitName;
+
+
+
     }
 }

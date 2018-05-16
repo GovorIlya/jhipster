@@ -7,6 +7,10 @@ import {
     FactormethodComponent,
     FactormethodRoute,
 } from './';
+import {PdfViewerModule} from "ng2-pdf-viewer";
+import {ResearchMethodService} from "../../entities/research-method";
+import {UnitService} from "../../entities/unit";
+import {RatingMethodService} from "../../entities/rating-method";
 
 const PAGE_SET_STATES = [
     ...FactormethodRoute,
@@ -14,6 +18,7 @@ const PAGE_SET_STATES = [
 
 @NgModule({
     imports: [
+        PdfViewerModule,
         JhipsterSharedModule,
         RouterModule.forRoot(PAGE_SET_STATES, { useHash: true })
     ],
@@ -25,6 +30,9 @@ const PAGE_SET_STATES = [
 ],
     providers: [
     FactormethodService,
+        ResearchMethodService,
+        UnitService,
+        RatingMethodService,
 ],
 schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

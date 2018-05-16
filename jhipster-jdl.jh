@@ -25,12 +25,18 @@ entity Image {
  }
  entity TypesProblems{
 	 nameOfType String,
-	 proyavlenie TextBlob,
-	 reasons TextBlob,
-	 profilactika TextBlob,
-	 problemImage ImageBlob,
-	 typesDocument AnyBlob
+	 problemImage ImageBlob
+     	 
  }
+ entity Proyavlenie{
+ text1 String
+ }
+ entity ReasonAndProfilactic{
+ text2 String,
+ text3 String
+ }
+
+ 
  entity RatingMethod{
 	 ratingHead String,
 	 ratingMethod TextBlob,
@@ -38,23 +44,28 @@ entity Image {
 	 ratingDocument AnyBlob
  }
 
-relationship OneToOne {
-	Unit{UnitDescription} to UnitDescription{unit}
-}
-
-relationship OneToMany {
-	Unit{image} to Image
-}
-relationship OneToMany {
-	Unit{ResearchMethod} to ResearchMethod
-}
-relationship OneToMany {
-	Unit{TypesProblems} to TypesProblems{unit}
-}
-relationship OneToMany {
-	Unit{RatingMethod} to RatingMethod
-}
 
 
+relationship OneToOne{
+Unit{description} to UnitDescription
+}
+relationship OneToMany{
+Unit{image} to Image
+}
 
+relationship OneToOne{
+Unit{resaerchMethod} to ResearchMethod
+}
+relationship OneToOne{
+Unit{ratingMethod} to RatingMethod
+}
+relationship OneToMany{
+Unit{typesProblems} to TypesProblems
+}
+relationship OneToMany{
+TypesProblems{proyavlenie} to Proyavlenie
+}
 
+relationship OneToMany{
+Proyavlenie{reasonAndProfilactic} to ReasonAndProfilactic
+}

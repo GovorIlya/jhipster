@@ -8,10 +8,22 @@
         <dd>
             <span>{{unit.unitName}}</span>
         </dd>
-        <dt><span jhiTranslate="jhipsterApp.unit.unitDescription">Unit Description</span></dt>
+        <dt><span jhiTranslate="jhipsterApp.unit.description">Description</span></dt>
         <dd>
-            <div *ngIf="unit.unitDescription">
-                <a [routerLink]="['/unit-description', unit.unitDescription?.id]">{{unit.unitDescription?.id}}</a>
+            <div *ngIf="unit.description">
+                <a [routerLink]="['/unit-description', unit.description?.id]">{{unit.description?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.unit.resaerchMethod">Resaerch Method</span></dt>
+        <dd>
+            <div *ngIf="unit.resaerchMethod">
+                <a [routerLink]="['/research-method', unit.resaerchMethod?.id]">{{unit.resaerchMethod?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.unit.ratingMethod">Rating Method</span></dt>
+        <dd>
+            <div *ngIf="unit.ratingMethod">
+                <a [routerLink]="['/rating-method', unit.ratingMethod?.id]">{{unit.ratingMethod?.id}}</a>
             </div>
         </dd>
     </dl>

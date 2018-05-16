@@ -10,6 +10,8 @@ import { UnitDialogComponent } from '../../../../../../main/webapp/app/entities/
 import { UnitService } from '../../../../../../main/webapp/app/entities/unit/unit.service';
 import { Unit } from '../../../../../../main/webapp/app/entities/unit/unit.model';
 import { UnitDescriptionService } from '../../../../../../main/webapp/app/entities/unit-description';
+import { ResearchMethodService } from '../../../../../../main/webapp/app/entities/research-method';
+import { RatingMethodService } from '../../../../../../main/webapp/app/entities/rating-method';
 
 describe('Component Tests', () => {
 
@@ -26,6 +28,8 @@ describe('Component Tests', () => {
                 declarations: [UnitDialogComponent],
                 providers: [
                     UnitDescriptionService,
+                    ResearchMethodService,
+                    RatingMethodService,
                     UnitService
                 ]
             })

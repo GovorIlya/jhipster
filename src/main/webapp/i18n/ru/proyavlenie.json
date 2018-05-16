@@ -1,0 +1,24 @@
+
+{
+    "jhipsterApp": {
+        "proyavlenie" : {
+            "home": {
+                "title": "Проявление аварийных ситуаций",
+                "createLabel": "Создать новый Проявление аварийных ситуаций",
+                "createOrEditLabel": "Создать или отредактировать Проявление аварийных ситуаций"
+            },
+            "created": "Новый Proyavlenie создан с идентификатором {{ param }}",
+            "updated": "Proyavlenie обновлен с идентификатором {{ param }}",
+            "deleted": "Proyavlenie удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Proyavlenie {{ id }}?"
+            },
+            "detail": {
+                "title": "Проявление аварийных ситуаций"
+            },
+            "text1": "Аварийная ситуация",
+            "typesProblems": "Виды хаарктерных нарушений",
+            "reasonAndProfilactic": "Возможные причиныаварийных ситуаций"
+        }
+    }
+}

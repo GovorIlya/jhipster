@@ -41,9 +41,6 @@ public class ResearchMethod implements Serializable {
     @Column(name = "jhi_file_content_type")
     private String fileContentType;
 
-    @ManyToOne
-    private Unit unit;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -129,19 +126,6 @@ public class ResearchMethod implements Serializable {
 
     public void setFileContentType(String fileContentType) {
         this.fileContentType = fileContentType;
-    }
-
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public ResearchMethod unit(Unit unit) {
-        this.unit = unit;
-        return this;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
